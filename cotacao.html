@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Engloba Sistemas</title>
+    <meta name="description" content="Engloba Sistemas" />
+    <meta name="keywords" content="logística, transporte, frete, e-commerce, cotação de frete, melhor preço de frete" />
+    <meta name="author" content="Engloba Sistemas" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="" />
+    <!-- Bootstrap & Plugins CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Custom CSS -->
+    <link href="assets/css/blue.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/slider.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div id="overlay"></div>
+    <div class="container modal-header d-flex align-items-center" id="mdl-header-simula-frete">
+        <div class="col-lg-10 text-left modal-text">
+            <h2>Cotação de Frete</h2>
+            <p>Temos as melhores tarifas do mercado. Informe os dados abaixo e comprove!</p>
+        </div>
+        <!-- <div class="col-lg-2 text-right">
+          <button class="btn btn-close-modal" data-dismiss="modal">
+            <i class="text-danger fa-2x fa fa-times-circle"></i>
+          </button>
+        </div> -->
+    </div>
+    <section class="page">
+
+        <!-- ***** Page Content Start ***** -->
+
+        <!-- Simula Frete -->
+        <div class="row mx-auto justify-content-center" id="start-cotacao">
+            <!-- <div class="col-lg-12">
+                <ol class="text-center p-2 border-bottom">
+                    <h2>Cotação de Frete</h2>
+                    <li>Temos as melhores tarifas do mercado. Informe os dados abaixo e comprove!</li>
+                </ol>
+            </div> -->
+            <!--Coluna aqui-->
+            <div class="col-lg-12">
+                <!-- <div class="center-heading pt-4">
+                                <h5 class="section-title text-left border-bottom">Informe os dados do pedido</h5>
+                            </div> -->
+
+
+
+                <div class="contact-form text-left container">
+                    <form id="form-simula-frete">
+                        <!-- Itens do formulário End -->
+
+
+                        <!-- CEP Origem e Destino -->
+                        <div class="ceps row justify-content-start">
+                            <div class="col-xl-6 col-lg-6  col-md-12 col-sm-12">
+                                <label for="input-cep-origem ">CEP de Origem</label>
+                                <!-- <input id="input-cep-origem" name="input-cep-origem" type="text" tabindex="1" autofocus> -->
+
+                                <span><input class="tab-enter" id="input-cep-origem" name="input-cep-origem"
+                                        inputmode="numeric" onkeypress="gerenciaTeclaEnter()"
+                                        onblur="pesquisacep(this.value, 'input-cep-origem', 'input-endereco-origem' )" /></span>
+                                <span id="input-endereco-origem" name="input-endereco-origem"></span>
+
+                            </div>
+
+                            <!-- <div class="col-xl-9 col-lg-8 col-md-12 col-sm-12">
+                                <label for="input-endereco-origem">Endereço de Origem</label>
+                                <input disabled readonly id="input-endereco-origem" name="input-endereco-origem" type="text">
+                            </div> -->
+                            <!--
+                                        <div id="result-cep-origem" class="container row">
+                                            <div class="col-lg-5 col-md-12 col-sm-12">
+                                                <label for="rua">Rua</label>
+                                                <input disabled name="rua" type="text" id="rua" size="60" />
+                                            </div>
+
+                                            <div class="col-lg-2 col-md-12 col-sm-12">
+                                                <label for="numero">Nº</label>
+                                                <input name="numero" type="text" id="numero" size="4" />
+                                            </div>
+
+                                            <div class="col-lg-5 col-md-12 col-sm-12">
+                                                <label for="bairro">Bairro</label>
+                                                <input disabled name="bairro" type="text" id="bairro" size="40" />
+                                            </div>
+
+                                            <div class="col-lg-10 col-md-12 col-sm-12">
+                                                <label for="cidade">Cidades</label>
+                                                <input disabled name="cidade" type="text" id="cidade" size="40" />
+                                            </div>
+
+                                            <div class="col-lg-2 col-md-12 col-sm-12">
+                                                <label for="uf">Estado</label>
+                                                <input disabled name="uf" type="text" id="uf" size="2" />
+                                            </div>
+                                        </div> -->
+
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                <label for="input-cep-destino">CEP de Destino</label>
+                                <input class="tab-enter" id="input-cep-destino" name="input-cep-destino"
+                                    inputmode="numeric" onkeypress="gerenciaTeclaEnter()"
+                                    onblur="pesquisacep(this.value, 'input-cep-destino', 'input-endereco-destino' )">
+                                <span id="input-endereco-destino" name="input-endereco-destino"></span>
+                            </div>
+                            <!--
+                            <div class="col-xl-9 col-lg-8 col-md-12 col-sm-12">
+                                <label for="input-endereco-destino">Endereço de Destino</label>
+                                <input disabled readonly id="input-endereco-destino" name="input-endereco-destino" type="text">
+                            </div> -->
+                        </div>
+                        <!-- /CEP Origem e Destino End-->
+
+                        <!-- Botão regra de dimensões -->
+                        <div class="row text-center">
+                            <div class="col-lg-3 col-md-12">
+                                <div class="pt-2 bd-highlight text-left">
+                                    <a readonly tabindex="-1" id="btn-regra-dimensoes" href="#" data-toggle="modal"
+                                        data-target="#mdl-regras-dimensoes"
+                                        class="btn-add-volume btn-primary-line bg-warning text-black border-white">Regras
+                                        e dimensões</a>
+                                </div>
+                                <!-- <div class="p-2 bd-highlight">
+                                                    <a href="" class="btn-primary-line">Voltar</a>
+                                                </div> -->
+
+                            </div>
+
+                        </div>
+                        <!-- /Botão regra de dimensões -->
+
+                        <!-- Volume(s) -->
+                        <div class="volumes row" id="ctn-volumes">
+
+                            <div id="volume-1" class="container volume-insert">
+
+                                <div class="col-lg-0 col-md-12 col-sm-12 row">
+
+                                    <h5 name="p_scnt_1" class="count-vol" id="p_scents_1">Volume&nbsp;<span
+                                            id="id-volume">1</span></h5>
+
+                                </div>
+
+                                <hr class="justify-content-between">
+
+                                <!-- Itens do Volume -->
+
+
+
+
+                                <div class="border-bottom mb-2row justify-content-between" id="itens-volume-1">
+                                    <div class="medidas row justify-content-around">
+
+                                        <!-- <div class="col-lg-3 col-md-12 col-sm-12">
+
+                                            <label class="small" for="input-quantidade">Quantidade</label>
+                                            <input class="tab-enter input-quantidade" id="input-quantidade"
+                                                name="input-quantidade" maxlength="2" inputmode="numeric" value="1">
+
+                                        </div> -->
+
+                                        <div class="col-lg-4 col-md-12 col-sm-12">
+
+                                            <label class="small" for="input-altura">Altura (cm)</label>
+                                            <a readonly tabindex="-1" href="#" data-toggle="modal"
+                                                data-target="#modalExemplo-altura" class="read-more no-index"> <i
+                                                    class="fa fa-question-circle"></i></a>
+                                            <input class="tab-enter input-altura" id="input-altura" name="input-altura"
+                                                maxlength="3" inputmode="numeric" value="0" onblur="validaAltura(this)">
+
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-12 col-sm-12">
+
+                                            <label class="small" for="input-largura">Largura (cm)</label>
+                                            <a readonly tabindex="-1" href="#" data-toggle="modal"
+                                                data-target="#modalExemplo-largura" class="read-more no-index"> <i
+                                                    class="fa fa-question-circle"></i></a>
+                                            <input class="tab-enter input-largura" id="input-largura"
+                                                name="input-largura" maxlength="3" inputmode="numeric" value="0"
+                                                onfocusout="validaLargura()">
+
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-12 col-sm-12">
+
+                                            <label class="small" for="input-comprimento">Comprimento (cm)</label>
+                                            <a readonly tabindex="-1" href="#" data-toggle="modal"
+                                                data-target="#modalExemplo-comp" class="read-more no-index"> <i
+                                                    class="fa fa-question-circle"></i></a>
+                                            <input class="tab-enter input-comprimento" id="input-comprimento"
+                                                name="input-comprimento" maxlength="3" value="0" inputmode="numeric"
+                                                onfocusout="validaComprimento()">
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row justify-content-start">
+                                        <div class="col-lg-4 col-md-12 col-sm-12">
+
+                                            <label for="input-peso-emb">Peso com embalagem (kg)</label>
+
+                                            <input class="tab-enter input-peso-emb" id="input-peso-emb"
+                                                name="input-peso-emb" maxlength="6" onblur="pesoEmbalagem(this)"
+                                                value="0">
+                                            <span class="kg">Kg</span>
+
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-12 col-sm-12">
+
+                                            <label for="input-valor-merc">Valor da mercadoria (R$)</label>
+                                            <input class="tab-enter input-valor-merc input-dinheiro"
+                                                id="input-valor-merc" type="money" value="0" placeholder="R$ 0,00"
+                                                name="input-valor-merc" onfocusout="validaValorMercadoria()">
+
+                                        </div>
+                                    </div>
+                                    <!-- Itens Volume End -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Volume(s) End -->
+                    </form>
+                    <!-- Itens do formulário End -->
+                    <!-- /FORM -->
+                    <div class="row text-center">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="pt-2 bd-highlight">
+                                <a readonly tabindex="-1" id="btn-add-volume" href="#"
+                                    class="btn-add-volume btn-primary-line bg-success text-white border-white"><i
+                                        class="fa fa-plus mt-2" aria-hidden="true"></i>&ensp;Adicionar volume</a>
+                            </div>
+                            <!-- <div class="p-2 bd-highlight">
+                                                <a href="" class="btn-primary-line">Voltar</a>
+                                            </div> -->
+
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="pt-2 bd-highlight">
+                                <a class="tab-enter form-submit btn-primary-line btn-simular-frete "
+                                    onclick="submeteCotacao()" href="#"><i class="fa fa-calculator mt-2"
+                                        aria-hidden="true"></i>&ensp;Cotar Frete</a>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-12 go-back d-none">
+                            <div class="pt-2 bd-highlight">
+                                <a class="tab-enter btn-primary-line w-50" onclick="goBack()" href="#"><i
+                                        class="fa fa-arrow-left mt-2" aria-hidden="true"></i>&ensp;Voltar</a>
+                            </div>
+                        </div> -->
+                        <!-- <div class="col-lg-4 col-md-12">
+                            <div class="pt-2 bd-highlight">
+                                <a class="tab-enter form-submit btn-primary-line btn-voltar"
+                                     href="https://www.rededeentregas.com.br"><i class="fas fa-arrow-circle-left mt-2"
+                                        aria-hidden="true"></i>&ensp;Voltar</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modals -->
+            <div id="modals">
+                <!-- ***** Modals of page ***** -->
+                <div class="modal fade" id="modalExemplo-altura" tabindex="-1" role="dialog"
+                    aria-labelledby="modalExemplo-alturaLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalExemplo-alturaLabel">Veja como medir a Altura</h5>
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="assets/img/caixa-papelao-altura.png" alt="Altura do Produto"
+                                    class="img-fluid">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-primary-line" data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modalExemplo-largura" tabindex="-1" role="dialog"
+                    aria-labelledby="modalExemplo-larguraLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalExemplo-larguraLabel">Veja como medir a Largura</h5>
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="assets/img/caixa-papelao-largura.png" alt="Largura do Produto"
+                                    class="img-fluid">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-primary-line" data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modalExemplo-comp" tabindex="-1" role="dialog"
+                    aria-labelledby="modalExemplo-compLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalExemplo-compLabel">Veja como medir a Comprimento</h5>
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="assets/img/caixa-papelao-comp.png" alt="Comprimento do Produto"
+                                    class="img-fluid">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-primary-line" data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ***** Modals of page End ***** -->
+
+                <!-- ALERTA DO FORMUlÁRIO -->
+                <!-- Button trigger modal Alerta do Formulário -->
+                <button id="btn-alerta-form" type="button" class="btn btn-primary d-none" data-toggle="modal"
+                    data-target="#alerta-formulario">
+                    Launch demo modal
+                </button>
+
+                <!-- Modal Regras de dimensões-->
+                <div class="modal fade" id="mdl-regras-dimensoes" tabindex="-1" role="dialog"
+                    aria-labelledby="mdl-regras-dimensoesLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-xl" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header alert alert-warning">
+                                <h5 class="modal-title" id="mdl-regras-dimensoesLabel">Regras e dimensões!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-center">
+
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <h4 class="text-danger mb-4">Como medir meu produto:</h4>
+                                        <img src="assets/img/caixa-rede-de-entregas.png" alt="Regras dimensões"
+                                            class="">
+
+                                    </div>
+
+                                    <div class="col-sm-7">
+                                        <div class="col-sm text-left">
+                                            <h5>Limites de dimensões de embalagem:</h5>
+                                            <p class="text-danger font-weight-bold mb-s mt-4">PACOTE E CAIXA</p>
+                                            <div class="row">
+                                                <div class=" border col-sm-4 font-weight-bold bg-info text-white">
+                                                    Especificações</div>
+                                                <div class=" border col-sm-4 font-weight-bold bg-info text-white">Mínimo
+                                                </div>
+                                                <div class=" border col-sm-4 font-weight-bold bg-info text-white">Máximo
+                                                </div>
+                                                <div class=" border col-sm-4 font-weight-bold">Comprimento (C)</div>
+                                                <div class=" border col-sm-4">16cm</div>
+                                                <div class=" border col-sm-4">100cm</div>
+                                                <div class=" border col-sm-4 font-weight-bold">Largura (L)</div>
+                                                <div class=" border col-sm-4">11cm</div>
+                                                <div class=" border col-sm-4">100cm</div>
+                                                <div class=" border col-sm-4 font-weight-bold">Altura (A)</div>
+                                                <div class=" border col-sm-4">2cm</div>
+                                                <div class=" border col-sm-4">100cm</div>
+                                                <div class=" border col-sm-4 font-weight-bold">Soma (C + L + A)</div>
+                                                <div class=" border col-sm-4">29cm</div>
+                                                <div class=" border col-sm-4">200cm</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="col-sm text-left">
+                                            <h5>Regras de cálculo de frete:</h5>
+                                            <ul>
+                                                <li class="mb-2 mt-4">• Fator cubagem: 167kg / m<sup>3</sup></li>
+                                                <li class="mb-2">• Encomendas com peso cubado de até 10kg será
+                                                    considerado o peso real. Acima de 10kg³, será considerado o maior
+                                                    peso entre o real e o cubado.</li>
+                                                <li class="mb-2">• Restrição de valor por mercadoria: O valor máximo aceito é de R$3.000,00 (três mil reais).</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="row">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-close-alert btn btn-secondary"
+                                    data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Regras de dimensões -->
+
+                <!-- Modal Alerta do Formulário-->
+                <div class="modal fade" id="alerta-formulario" tabindex="-1" role="dialog"
+                    aria-labelledby="alerta-formularioLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header alert alert-danger">
+                                <h5 class="modal-title" id="alerta-formularioLabel">Atenção!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h4 class="" id="aviso-form-1"></h4>
+                                <br>
+                                <h5 id="aviso-form-2"></h5>
+                                <br>
+                                <h5 class="small" id="aviso-form-3"></h5>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-close-alert btn btn-secondary"
+                                    data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ALERTA DO FORMUlÁRIO -->
+
+                <!-- Modal Resultado do Frete -->
+                <!-- Button trigger modal -->
+                <button id="btn-modal-frete" type="button" class="btn btn-primary d-none" data-toggle="modal"
+                    data-target="#resultFreteModalCenter">
+                    Launch demo modal
+                </button>
+
+                <div class="modal fade" id="resultFreteModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="resultFreteModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header d-flex align-items-center rounded-top alert-secondary"><i
+                                    class="fa fa-shipping-fast mr-2"></i>
+                                <h5 class="modal-title" id="resultFreteModalLongTitle">Resultado do seu frete</h5>
+                                <button type="button" class="close" id="close-modal" data-dismiss="modal"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <span class="dataFrete">Data da cotação: </span>
+                                <span id="horarioLocal" class="dataHora"></span>
+                                <ul class="list-group mt-4">
+                                    <li class="m-1 d-flex justify-content-between align-items-center row">
+                                        <span class="p-2 text-left col-8">Frete Total:</span>
+                                        <span class="p-2 text-right font-weight-bold col-4">R$ <span
+                                                class="frete-total"></span></span>
+                                    </li>
+
+                                    <li class="m-1 d-flex justify-content-between align-items-center row">
+                                        <span class="p-2 text-left col-8">Prazo de Entrega:</span>
+                                        <span class="p-2 text-right font-weight-bold col-4"><span
+                                                class="frete-prazo"></span>
+                                            dia(s)</span>
+                                    </li>
+
+                                    <li class="m-1 d-flex justify-content-between align-items-center row">
+                                        <span class="p-2 text-left col-8">Filial responsável pela entrega:</span>
+                                        <span class="p-2 text-right font-weight-bold col-4"><span
+                                                class="frete-base"></span></span>
+                                    </li>
+
+                                    <li class="m-1 d-flex justify-content-between align-items-center row">
+                                        <span class="p-2 text-left col-8">Peso considerado:</span>
+                                        <span class="p-2 text-right font-weight-bold col-4"><span
+                                                class="frete-peso"></span>kg</span>
+                                    </li>
+
+                                </ul>
+                                <!-- <h5 class="font-weight-bold p-2" name="frete-total">Frete Total: R$ <span class="frete-total"></span></h5>
+            <h5 class="font-weight-bold p-2" name="frete-prazo">Prazo de Entrega: <span class="frete-prazo"></span> dia(s)</h5>
+            <h5 class="font-weight-bold p-2" name="frete-base">Filial: <span class="frete-base"></span></h5>
+            <h5 class="font-weight-bold p-2" name="frete-peso">Peso: <span class="frete-peso"></span>kg</h5> -->
+                            </div>
+                            <!-- http://127.0.0.1:5500/criarconta_single.html -->
+                            <div class="modal-footer rounded-bottom">
+                                <button type="button" class="btn-fecha-result-frete btn btn-secondary"
+                                    data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fim/ Modal Resultado do Frete -->
+            </div>
+            <!-- Fim /Modals -->
+
+        </div>
+        <!-- /Simula Frete End -->
+        <!-- ***** Page Content End ***** -->
+
+    </section>
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/jquery.mask.js"></script>
+    <script src="assets/js/jquery.mask.min.js"></script>
+
+    <!--build:js index.min.js-->
+    <script src="assets/js/index.js"></script>
+    <!--endbuild-->
+
+    <!-- Bootstrap -->
+    <!--build:js popper.min.js-->
+    <script src="assets/js/popper.js"></script>
+    <!--endbuild-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Bootbox para alertas (http://bootboxjs.com/documentation.html)-->
+    <script src="assets/js/bootbox.min.js"></script>
+
+
+    <!-- Plugins -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="assets/js/jquery.cpfcnpj.js"></script>
+    <script src="assets/slick-1.8.1/slick/slick.min.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/parallax.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+    <script src="assets/js/vanilla-masker.min.js"></script>
+    <script src="assets/js/jquery.maskedinput.min.js"></script>
+    <script src="assets/js/jquery.weightMask.min.js"></script>
+    <script src="assets/js/jquery.maskMoney.min.js"></script>
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+    <!-- Cadastro -->
+    <script src="assets/js/cadastro.js"></script>
+    <!-- Validação Cadastro -->
+    <script src="assets/js/validacao.js"></script>
+    <!-- Login -->
+    <script src="assets/js/login.js"></script>
+    <!-- Envio de Simula Frete-->
+    <script src="../assets/js/contato.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/simulacao.js"></script>
+    <script src="https://kit.fontawesome.com/4c6ab8fed6.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            if ($(window).width() < 992) {
+                $(".go-back").removeClass("d-none");
+            } else {
+                $(".go-back").addClass("d-none");
+            }
+        })
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <!-- BODY END -->
+
+</body>
+
+</html>

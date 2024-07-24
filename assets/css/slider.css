@@ -1,0 +1,259 @@
+/*#slide {
+	width: 100%;
+}
+
+.mySlides {
+	display: none
+}
+
+.slideshow-container {
+	width: 100%;
+}
+
+/* Next & previous buttons */
+
+
+/*
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 35%;
+	width: auto;
+	padding: 16px;
+	margin-top: 50px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+/* Position the "next button" to the right */
+
+
+/*
+
+.next {
+	right: 0;
+	border-radius: 50px;
+}
+
+.prev {
+	left: 0;
+	border-radius: 50px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+
+
+
+.prev:hover, .next:hover {
+	background-color: rgba(46, 79, 118, 0.8);
+	color: aliceblue;
+}
+
+/* Caption text */
+
+/* .text {
+	color: #f2f2f2;
+	font-size: 15px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+} */
+
+/* The dots/bullets/indicators */
+
+
+/*
+.dot {
+	cursor: pointer;
+	height: 13px;
+	width: 13px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+#bullet-slide .active, .dot:hover {
+	background-color: #717171;
+}
+
+/* Fading animation */
+
+
+/*
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 2s;
+	animation-name: fade;
+	animation-duration: 2s;
+}
+
+@-webkit-keyframes fade {
+	from {
+		opacity: .4
+	}
+	to {
+		opacity: 1
+	}
+}
+
+@keyframes fade {
+	from {
+		opacity: .4
+	}
+	to {
+		opacity: 1
+	}
+}
+
+/* On smaller screens, decrease text size */
+
+
+
+@media only screen and (max-width: 320px) {
+	.text {
+		font-size: 5px
+	}
+	
+}
+
+/*
+#bullet-slide {
+	position: relative;
+	margin-top: -24px;
+}
+*/
+
+
+/*------------------------------------------
+SLIDE ATUALIZADO
+--------------------------------------------
+*/
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 20px 20px 20px 20px;
+  user-select: none;
+}
+
+
+.next {
+  right: 20px;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.prev{
+  left: 20px;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.vitrine{
+	margin-top: 120%;
+  }
+  
+
+	.prev:hover i{
+
+		color: #fff !important;
+		cursor:hand;
+		transition: 0.6s ease;
+	}
+	
+	.next:hover i{
+	
+		color: #fff !important;
+		cursor:hand;
+		transition: 0.6s ease;
+	}
+	
+
+  @media  (max-width: 1350px){
+
+	.vitrine{
+	  margin-top: 150%;
+	}  
+  }
+
+
+  @media (max-width: 350px){
+	.titulo-responsivo{
+		display: none;
+	}
+  }
+  
+  
+  .carousel-indicators li:hover {
+	background-color: rgba(46, 79, 118, 0.8);
+  }
+  
+  .carousel-indicators {
+	bottom:-30px;
+	cursor: pointer;
+  }
+  .carousel-inner {
+	margin-bottom:30px;
+  }
+  
+	.carousel-indicators li {
+		cursor: pointer;
+		height: 15px;
+		width: 15px;
+		margin: 0 2px;
+		background-color:  rgba(140, 200, 65, 0.8);
+		border-radius: 50%;
+		display: inline-block;
+		transition: background-color 0.6s ease;
+	}
+  
+  
+  .carousel-indicators .active{
+	background-color: rgba(46, 79, 118, 0.8);
+  }
+  
+  /*------------------------------------------
+  CARROSEL FADE
+  --------------------------------------------
+  */
+  .carousel-fade .carousel-item {
+	opacity: 0;
+	transition: opacity ease-out .7s;
+	
+	
+  }
+  
+  .carousel-fade .carousel-item.active,
+  .carousel-fade .carousel-item-next.carousel-item-left,
+  .carousel-fade .carousel-item-prev.carousel-item-right {
+	opacity: 1;
+  }
+  
+  .carousel-fade .active.carousel-item-left,
+  .carousel-fade .active.carousel-item-right {
+	opacity: 0;
+  }
+  
+  .carousel-fade .carousel-item-next,
+  .carousel-fade .carousel-item-prev,
+  .carousel-fade .carousel-item.active,
+  .carousel-fade .active.carousel-item-left,
+  .carousel-fade .active.carousel-item-prev {
+	transform: translateX(0);
+	transform: translate3d(0, 0, 0);
+  }
